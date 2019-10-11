@@ -43,7 +43,7 @@ The motivations for this project are twofold:
 
 2. Time is lost between patients getting their eyes scanned (shown below), having their images analyzed by doctors, and scheduling a follow-up appointment. By processing images in real-time, EyeNet would allow people to seek & schedule treatment the same day
 
-      ![DR Manual Screening](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/dr_scan.gif)
+      ![DR Manual Screening](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/dr_scan.gif)
 
 ### From where we get dataset to train our model?
 The data originates from a [2015 Kaggle competition](https://www.kaggle.com/c/diabetic-retinopathy-detection). However, is an atypical Kaggle dataset. In most Kaggle competitions, the data has already been cleaned, giving the data scientist very little to preprocess. With this dataset, this isn't the case.
@@ -55,10 +55,10 @@ The training data is comprised of 35,126 images, which are augmented during prep
 ### Exploratory Data Analysis
 The very first item analyzed was the training labels. While there are five categories to predict against, the plot below shows the severe class imbalance in the original dataset.
 
-![DR_vs_Frequency_table](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/DR_vs_Frequency_tableau.png)
+![DR_vs_Frequency_table](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/DR_vs_Frequency_tableau.png)
 
 **Confusion matrix** of **original** train **CSV**.
-![trainLabels_confusion_matrix](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/trainLabels_confusion_matrix.png)
+![trainLabels_confusion_matrix](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/trainLabels_confusion_matrix.png)
 
 Of the original training data, 25,810 images are classified as not having retinopathy, while 9,316 are classified as having retinopathy.
 
@@ -67,31 +67,31 @@ Due to the class imbalance, steps taken during preprocessing in order to rectify
 Furthermore, the variance between images of the eyes is extremely high. The first two rows of images show class 0 (no retinopathy); the second two rows show class 4 (proliferative retinopathy).
 
 1. class 0 (no retinopathy)
-![No_DR_white_border_1](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/No_DR_white_border_1.png)
-![No_DR_white_border_2](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/No_DR_white_border_2.png)
+![No_DR_white_border_1](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/No_DR_white_border_1.png)
+![No_DR_white_border_2](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/No_DR_white_border_2.png)
                 
 2. class 4 (proliferative retinopathy)
-![Proliferative_DR_white_border_1](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/Proliferative_DR_white_border_1.png)
-![Proliferative_DR_white_border_2](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/Proliferative_DR_white_border_2.png)
+![Proliferative_DR_white_border_1](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/Proliferative_DR_white_border_1.png)
+![Proliferative_DR_white_border_2](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/Proliferative_DR_white_border_2.png)
 
 ### Different types of data preprocessing and data augmentation techniques we use to deal with major class imbalance
 The preprocessing pipeline is the following:
 1. [Gregwchase](https://github.com/gregwchase/dsi-capstone) approach
-    - [x] **[Crop](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/1_crop_and_resize.py)** images into 1800x1800 resolution
-    - [x] **[Resize](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/1_crop_and_resize.py)** images to 512x512/256x256 resolution
-    - [x] **[Remove](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/2_find_black_images.py)** totally **black images** form dataset
-    - [x] **[Rotate](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/3_rotate_images.py)** and **mirror**(Rotate DR images to 90°,120°,180°,270° + mirror, and only mirror non-DR images)
-    - [x] **[Update](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/4_reconcile_label.py)** **CSV** so it should contain all the augmented images and there respective labels
-    - [ ] **[Convert](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/5_image_to_array.py)** images to numpy array
+    - [x] **Crop** images into 1800x1800 resolution
+    - [x] **Resize** images to 512x512/256x256 resolution
+    - [x] **Remove** totally **black images** form dataset
+    - [x] **Rotate** and **mirror**(Rotate DR images to 90°,120°,180°,270° + mirror, and only mirror non-DR images)
+    - [x] **Update** **CSV** so it should contain all the augmented images and there respective labels
+    - [ ] **Convert** images to numpy array
     
-2. [Ms.Sheetal Maruti Chougule/Prof.A.L.Renke](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/documents/research%20paper/New_Preprocessing_approach_for_Images_in-Diabetic_Retinopathy_Screening%20.pdf) approach
-    - [x] Image **[Denoising](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/6_Denoise_and_CLAHE.py)**
-    - [x] **[CLAHE](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/6_Denoise_and_CLAHE.py)** (Contrast Limited Adaptive Histogram Equalization)
+2. Ms.Sheetal Maruti Chougule/Prof.A.L.Renke approach
+    - [x] Image **Denoising**
+    - [x] **CLAHE** (Contrast Limited Adaptive Histogram Equalization)
     
-3. [Ben Graham](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/documents/research%20paper/competitionreport.pdf) approach(Only Works in python2.7)
-    - [x] **[Rescale](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)** the images to have the same radius (300 pixels or 500 pixels)
-    - [x] Subtracted the local average color; the **[local average gets mapped to 50% gray](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)**
-    - [x] Clipped the images to 90% size to **[remove the boundary effects](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)**
+3. Ben Graham approach(Only Works in python2.7)
+    - [x] **Rescale** the images to have the same radius (300 pixels or 500 pixels)
+    - [x] Subtracted the local average color; the **local average gets mapped to 50% gray**
+    - [x] Clipped the images to 90% size to **remove the boundary effects**
     
 #### 1. Gregwchase approach
 ##### Crop images into 1800x1800 resolution
@@ -108,16 +108,16 @@ All images were rotated and mirrored.Images without retinopathy were mirrored; i
 
 The first images show two pairs of eyes, along with the black borders. Notice in the cropping and rotations how the majority of noise is removed.
 
-![sample_images_unscaled](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/sample_images_unscaled.jpg)
+![sample_images_unscaled](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/sample_images_unscaled.jpg)
 
-![17_left_horizontal_white](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/17_left_horizontal_white.jpg)
+![17_left_horizontal_white](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/17_left_horizontal_white.jpg)
 
 After rotations and mirroring, the class imbalance is rectified, with a few thousand more images having retinopathy. In total, there are 106,386 images being processed by the neural network.
 
-![DR_vs_frequency_balanced](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/DR_vs_frequency_balanced.png)
+![DR_vs_frequency_balanced](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/DR_vs_frequency_balanced.png)
 
 **Confusion matrix** of **new CSV** after image augmentation.
-![trainlabel_master_v2_confusion_matrix](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/trainlabel_master_v2_confusion_matrix.png)
+![trainlabel_master_v2_confusion_matrix](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/trainlabel_master_v2_confusion_matrix.png)
     
 ### Our neural network architecture
 
@@ -220,16 +220,16 @@ python app.py
 ```
 1. Take the retinal image of person one per each eye
 2. Upload the image to website
-![upload_image_1](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/upload_image_1.jpg)
-![upload_image_1_2](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/upload_image_1_2.jpg)
+![upload_image_1](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/upload_image_1.jpg)
+![upload_image_1_2](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/upload_image_1_2.jpg)
 
 3. We have created a REST API which takes two images as input and return JSON response
 4. The response from API is displayed into bar graph
-![upload_image_2](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/upload_image_2.jpg)
+![upload_image_2](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/upload_image_2.jpg)
 
 5. You can also generate PDF which contain images you upload and their predictions for doctors can refer it for later use
-![PDF_Generated_1](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/PDF_Generated_1.jpg)
-![PDF_Generated_1_2](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/images/readme/PDF_Generated_1_2.jpg)
+![PDF_Generated_1](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/PDF_Generated_1.jpg)
+![PDF_Generated_1_2](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/PDF_Generated_1_2.jpg)
 
 ## Credits
 This project cannot be completed without you guys [@github/PatrioticParth](https://github.com/PatrioticParth) and [@github/hv245](https://github.com/hv245). Thanks for your support :) 
