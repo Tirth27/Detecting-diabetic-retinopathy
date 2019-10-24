@@ -240,4 +240,5 @@ This project cannot be completed without you guys [@github/PatrioticParth](https
 1. [Denoise](https://docs.opencv.org/3.3.0/d5/d69/tutorial_py_non_local_means.html) and [CLAHE](https://docs.opencv.org/3.1.0/d5/daf/tutorial_py_histogram_equalization.html)
 2. Ben Graham [1](https://github.com/btgraham/SparseConvNet) [2](https://www.kaggle.com/c/diabetic-retinopathy-detection/discussion/15801)
 3. [Gregwchase](https://github.com/gregwchase/dsi-capstone)
+4. Google Research [1](https://ai.googleblog.com/2018/12/improving-effectiveness-of-diabetic.html) [2](https://about.google/stories/seeingpotential/)
 
