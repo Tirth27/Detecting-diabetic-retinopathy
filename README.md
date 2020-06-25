@@ -231,6 +231,9 @@ python app.py
 ![PDF_Generated_1](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/PDF_Generated_1.jpg)
 ![PDF_Generated_1_2](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/PDF_Generated_1_2.jpg)
 
+# Note
+We have tried various approach to get the good results and all the approaches are in ![Miscellaneous Folder](https://github.com/Tirth27/Detecting-diabetic-retinopathy/tree/master/src/miscellaneous%20scripts)
+
 ## Credits
 This project cannot be completed without you guys [@github/PatrioticParth](https://github.com/PatrioticParth) and [@github/hv245](https://github.com/hv245). Thanks for your support :) 
 
