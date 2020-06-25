@@ -1,0 +1,20 @@
+-----Data Augmentation-----
+rotation = True
+rotation_range = (0, 360)
+contrast =  True
+contrast_range = (0.7, 1.3)
+brightness = True
+brightness_range = (0.7, 1.3)
+color = True
+color_range = (0.7, 1.3)
+flip = True
+flip_prob = 0.5
+crop = True
+crop_prob = 0.4
+crop_width = 0.03
+crop_height = 0.04
+zoom = True
+zoom_prob = 0.5
+zoom_range = (0.00, 0.05)
+extra_width_crop = True
+crop_after_rotation = True
