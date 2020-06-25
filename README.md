@@ -1,5 +1,3 @@
-***Code will be public once the paper is published**
-
 # AI-For-MedicalScience
 ## [Live Demo](https://diabetic-retinopathy-detection.herokuapp.com)
 Automated DR detection system which will be provided as a service to the doctors to use it for the betterment of humanity.
