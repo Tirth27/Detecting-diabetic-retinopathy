@@ -76,21 +76,21 @@ Furthermore, the variance between images of the eyes is extremely high. The firs
 ### Different types of data preprocessing and data augmentation techniques we use to deal with major class imbalance
 The preprocessing pipeline is the following:
 1. [Gregwchase](https://github.com/gregwchase/dsi-capstone) approach
-    - [x] **Crop** images into 1800x1800 resolution
-    - [x] **Resize** images to 512x512/256x256 resolution
-    - [x] **Remove** totally **black images** form dataset
-    - [x] **Rotate** and **mirror**(Rotate DR images to 90°,120°,180°,270° + mirror, and only mirror non-DR images)
-    - [x] **Update** **CSV** so it should contain all the augmented images and there respective labels
-    - [ ] **Convert** images to numpy array
+    - [x] **[Crop](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/1_crop_and_resize.py)** images into 1800x1800 resolution
+    - [x] **[Resize](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/1_crop_and_resize.py)** images to 512x512/256x256 resolution
+    - [x] **[Remove](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/2_find_black_images.py)** totally **black images** form dataset
+    - [x] **[Rotate](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/3_rotate_images.py)** and **mirror**(Rotate DR images to 90°,120°,180°,270° + mirror, and only mirror non-DR images)
+    - [x] **[Update](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/4_reconcile_label.py)** **CSV** so it should contain all the augmented images and there respective labels
+    - [ ] **[Convert](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/5_image_to_array.py)** images to numpy array
     
-2. Ms.Sheetal Maruti Chougule/Prof.A.L.Renke approach
-    - [x] Image **Denoising**
-    - [x] **CLAHE** (Contrast Limited Adaptive Histogram Equalization)
+2. [Ms.Sheetal Maruti Chougule/Prof.A.L.Renke](https://www.ripublication.com/irph/ijert_spl17/ijertv10n1spl_96.pdf) approach
+    - [x] Image **[Denoising](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/6_Denoise_and_CLAHE.py)**
+    - [x] **[CLAHE](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/6_Denoise_and_CLAHE.py)** (Contrast Limited Adaptive Histogram Equalization)
     
-3. Ben Graham approach(Only Works in python2.7)
-    - [x] **Rescale** the images to have the same radius (300 pixels or 500 pixels)
-    - [x] Subtracted the local average color; the **local average gets mapped to 50% gray**
-    - [x] Clipped the images to 90% size to **remove the boundary effects**
+3. [Ben Graham](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/documents/research%20paper/competitionreport.pdf) approach(Only Works in python2.7)
+    - [x] **[Rescale](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)** the images to have the same radius (300 pixels or 500 pixels)
+    - [x] Subtracted the local average color; the **[local average gets mapped to 50% gray](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)**
+    - [x] Clipped the images to 90% size to **[remove the boundary effects](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)**
     
 #### 1. Gregwchase approach
 ##### Crop images into 1800x1800 resolution
