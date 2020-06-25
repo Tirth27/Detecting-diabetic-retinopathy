@@ -57,6 +57,7 @@ The very first item analyzed was the training labels. While there are five categ
 ![DR_vs_Frequency_table](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/DR_vs_Frequency_tableau.png)
 
 **Confusion matrix** of **original** train **CSV**.
+
 ![trainLabels_confusion_matrix](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/images/readme/trainLabels_confusion_matrix.png)
 
 Of the original training data, 25,810 images are classified as not having retinopathy, while 9,316 are classified as having retinopathy.
@@ -87,7 +88,7 @@ The preprocessing pipeline is the following:
     - [x] Image **[Denoising](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/6_Denoise_and_CLAHE.py)**
     - [x] **[CLAHE](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/6_Denoise_and_CLAHE.py)** (Contrast Limited Adaptive Histogram Equalization)
     
-3. [Ben Graham](https://github.com/Tirth27/AI-For-MedicalScience/blob/master/documents/research%20paper/competitionreport.pdf) approach(Only Works in python2.7)
+3. [Ben Graham](https://www.kaggle.com/c/diabetic-retinopathy-detection/discussion/15801) approach(Only Works in python2.7)
     - [x] **[Rescale](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)** the images to have the same radius (300 pixels or 500 pixels)
     - [x] Subtracted the local average color; the **[local average gets mapped to 50% gray](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)**
     - [x] Clipped the images to 90% size to **[remove the boundary effects](https://github.com/Tirth27/Detecting-diabetic-retinopathy/blob/master/src/Preprocessing%20Scripts/Train/Ben%20Graham/1_remove_boundary_effects.py)**
